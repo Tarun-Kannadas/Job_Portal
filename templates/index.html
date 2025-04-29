@@ -70,14 +70,18 @@
     <!-- Features Section -->
     <div class="container mt-5">
         <div class="row text-center">
-            <!-- For Job Seekers -->
-            {% if current_user.role == 'job_seeker' %}
+            {% if not current_user.is_authenticated %}
+                <div class="col-12">
+                    <p class="alert alert-warning">Please <a href="{{ url_for('login') }}">login</a> to access the job portal features.</p>
+                </div>
+            {% elif current_user.role == 'job_seeker' %}
                 {% include 'browse_jobs.html' %}
             {% else %}
                 {% include 'post_job.html' %}
             {% endif %}
         </div>
     </div>
+
 
 </body>
 </html>
