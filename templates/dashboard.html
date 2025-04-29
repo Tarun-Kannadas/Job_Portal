@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div style="padding: 40px;">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>You are logged in as <strong>{{ role }}</strong>.</p>
+    </div>
+</body>
+</html>

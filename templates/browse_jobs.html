@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-5 text-dark">Browse Jobs</h2>
+
+    <!-- Filter form -->
+    <form method="GET" action="{{ url_for('home') }}" class="mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-3">
+                <input type="text" name="location" class="form-control" placeholder="Location" value="{{ location }}" aria-label="Location">
+            </div>
+            <div class="col-md-3 mb-3">
+                <input type="text" name="category" class="form-control" placeholder="Category" value="{{ category }}" aria-label="Category">
+            </div>
+            <div class="col-md-3 mb-3">
+                <input type="text" name="salary" class="form-control" placeholder="Salary" value="{{ salary }}" aria-label="Salary">
+            </div>
+            <div class="col-md-3 mb-3">
+                <button type="submit" class="btn btn-dark w-100">Filter</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Display job listings -->
+    <div class="row justify-content-center">
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="col-md-4 mb-4">
+                    <div class="card border-light shadow-sm rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark font-weight-bold">{{ job.title }}</h5>
+                            <p class="card-text text-muted">
+                                <strong>Description:</strong> <span class="text-dark">{{ job.description }}</span><br>
+                                <strong>Salary:</strong> <span class="text-dark">{{ job.salary }}</span><br>
+                                <strong>Location:</strong> <span class="text-dark">{{ job.location }}</span><br>
+                                <strong>Category:</strong> <span class="text-dark">{{ job.category }}</span>
+                                <strong>Company:</strong> <span class="text-dark">{{ job.company }}</span>
+                            </p>
+                            <!-- Uncomment and add job's apply URL if available -->
+                            <!-- <a href="{{ job.apply_url }}" class="btn btn-outline-dark" target="_blank">Apply Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info text-center" role="alert">
+                    No jobs found with the specified filters.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

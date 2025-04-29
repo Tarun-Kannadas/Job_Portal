@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .hero-section {
+            background-color: #222;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobPosted = urlParams.get('job_posted');
+
+            if (jobPosted === 'true') {
+                // Show SweetAlert success popup
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Job Posted!',
+                    text: 'Your job has been successfully posted.',
+                    confirmButtonColor: '#3085d6',
+                });
+
+                // Clean the URL without reloading the page (remove the query parameter)
+                const newURL = window.location.pathname;
+                window.history.replaceState({}, document.title, newURL);
+            } else if (jobPosted === 'false') {
+                // Show SweetAlert error popup if the job posting failed
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'There was an error posting your job. Please fill in all the required fields.',
+                    confirmButtonColor: '#d33',
+                });
+
+                // Clean the URL without reloading the page (remove the query parameter)
+                const newURL = window.location.pathname;
+                window.history.replaceState({}, document.title, newURL);
+            }
+        };
+    </script>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="mb-4">Welcome to Job Portal</h1>
+            <p class="lead">Find your dream job or post new opportunities for others. Connecting talent with opportunities.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="container mt-5">
+        <div class="row text-center">
+            <!-- For Job Seekers -->
+            {% if current_user.role == 'job_seeker' %}
+                {% include 'browse_jobs.html' %}
+            {% else %}
+                {% include 'post_job.html' %}
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
+
+<!-- Bootstrap JS Bundle (includes Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>

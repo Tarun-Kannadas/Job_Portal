@@ -1,0 +1,25 @@
+<nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #222; color: white;">
+    <div>
+        <a href="{{ url_for('home') }}" style="text-decoration:none; color: white; font-weight: bold;">JobPortal</a>
+        {% if current_user.is_authenticated %}
+
+            <!-- Links specific to jobseekers and employers -->
+            {% if current_user.role == 'employer' %}
+                <a href="{{ url_for('my_listings') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Listings</a>
+            {% elif current_user.role == 'jobseeker' %}
+                <a href="{{ url_for('browse_jobs') }}" style="text-decoration:none; color: white; margin-left: 15px;">Browse Jobs</a>
+            {% endif %}
+            
+            <a href="{{ url_for('profile') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Profile</a>
+        {% endif %}
+    </div>
+    <div>
+        {% if current_user.is_authenticated %}
+            Welcome, {{ current_user.username }} |
+            <a href="{{ url_for('logout') }}" style="text-decoration:none; color: red; margin-left: 10px;">Logout</a>
+        {% else %}
+            Welcome, Guest |
+            <a href="{{ url_for('login') }}" style="text-decoration:none; color: lightgreen; margin-left: 10px;">Login</a>
+        {% endif %}
+    </div>
+</nav>
