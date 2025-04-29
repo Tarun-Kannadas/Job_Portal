@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs Applied</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Jobs You Have Applied To</h2>
+
+        {% if jobs %}
+            <div class="row justify-content-center">
+                {% for job in jobs %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card border border-primary shadow-sm rounded-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-dark font-weight-bold">{{ job.title }}</h5>
+                                <ul class="list-unstyled text-muted">
+                                    <li><strong>Description:</strong> <span class="text-dark">{{ job.description }}</span></li>
+                                    <li><strong>Salary:</strong> <span class="text-dark">{{ job.salary }}</span></li>
+                                    <li><strong>Location:</strong> <span class="text-dark">{{ job.location }}</span></li>
+                                    <li><strong>Category:</strong> <span class="text-dark">{{ job.category }}</span></li>
+                                    <li><strong>Company:</strong> <span class="text-dark">{{ job.company }}</span></li>
+                                </ul>
+                                <button class="btn btn-success btn-sm" disabled>Applied</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info text-center" role="alert">
+                You haven't applied to any jobs yet.
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

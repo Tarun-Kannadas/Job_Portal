@@ -3,7 +3,7 @@
         "id": 1,
         "title": "Software Engineer",
         "description": "Software Engineer role at Tech Solutions Pvt Ltd",
-        "salary": "\u00e2\u201a\u00b98,00,000 - \u00e2\u201a\u00b912,00,000",
+        "salary": "Rs 8,00,000 - Rs 12,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Engineering",
         "company": "Tech Solutions Pvt Ltd"
@@ -12,7 +12,7 @@
         "id": 2,
         "title": "Data Scientist",
         "description": "Data Scientist role at DataScience India",
-        "salary": "\u00e2\u201a\u00b910,00,000 - \u00e2\u201a\u00b915,00,000",
+        "salary": "Rs 10,00,000 - Rs 15,00,000",
         "location": "Hyderabad, Telangana",
         "category": "Data Science",
         "company": "DataScience India"
@@ -21,7 +21,7 @@
         "id": 3,
         "title": "UI/UX Designer",
         "description": "UI/UX Designer role at Creative Studios",
-        "salary": "\u00e2\u201a\u00b97,00,000 - \u00e2\u201a\u00b911,00,000",
+        "salary": "Rs 7,00,000 - Rs 11,00,000",
         "location": "Mumbai, Maharashtra",
         "category": "Design",
         "company": "Creative Studios"
@@ -30,7 +30,7 @@
         "id": 4,
         "title": "Project Manager",
         "description": "Project Manager role at Innovative Technologies",
-        "salary": "\u00e2\u201a\u00b912,00,000 - \u00e2\u201a\u00b918,00,000",
+        "salary": "Rs 12,00,000 - Rs 18,00,000",
         "location": "Chennai, Tamil Nadu",
         "category": "Management",
         "company": "Innovative Technologies"
@@ -39,7 +39,7 @@
         "id": 5,
         "title": "Full Stack Developer",
         "description": "Full Stack Developer role at CodeCraft Technologies",
-        "salary": "\u00e2\u201a\u00b98,00,000 - \u00e2\u201a\u00b912,00,000",
+        "salary": "Rs 8,00,000 - Rs 12,00,000",
         "location": "Pune, Maharashtra",
         "category": "Engineering",
         "company": "CodeCraft Technologies"
@@ -48,7 +48,7 @@
         "id": 6,
         "title": "Digital Marketing Specialist",
         "description": "Digital Marketing Specialist role at MarketingHub India",
-        "salary": "\u00e2\u201a\u00b96,00,000 - \u00e2\u201a\u00b99,00,000",
+        "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Delhi NCR",
         "category": "Marketing",
         "company": "MarketingHub India"
@@ -57,7 +57,7 @@
         "id": 7,
         "title": "Business Analyst",
         "description": "Business Analyst role at TechInnovate Solutions",
-        "salary": "\u00e2\u201a\u00b98,00,000 - \u00e2\u201a\u00b914,00,000",
+        "salary": "Rs 8,00,000 - Rs 14,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Business",
         "company": "TechInnovate Solutions"
@@ -66,7 +66,7 @@
         "id": 8,
         "title": "Content Writer",
         "description": "Content Writer role at ContentWorks Pvt Ltd",
-        "salary": "\u00e2\u201a\u00b94,00,000 - \u00e2\u201a\u00b97,00,000",
+        "salary": "Rs 4,00,000 - Rs 7,00,000",
         "location": "Mumbai, Maharashtra",
         "category": "Writing",
         "company": "ContentWorks Pvt Ltd"
@@ -75,7 +75,7 @@
         "id": 9,
         "title": "HR Executive",
         "description": "HR Executive role at PeopleFirst HR",
-        "salary": "\u00e2\u201a\u00b95,00,000 - \u00e2\u201a\u00b98,00,000",
+        "salary": "Rs 5,00,000 - Rs 8,00,000",
         "location": "Kochi, Kerala",
         "category": "Human Resources",
         "company": "PeopleFirst HR"
@@ -84,7 +84,7 @@
         "id": 10,
         "title": "Network Engineer",
         "description": "Network Engineer role at NetworkTech Solutions",
-        "salary": "\u00e2\u201a\u00b97,00,000 - \u00e2\u201a\u00b911,00,000",
+        "salary": "Rs 7,00,000 - Rs 11,00,000",
         "location": "Noida, Uttar Pradesh",
         "category": "Engineering",
         "company": "NetworkTech Solutions"
@@ -93,7 +93,7 @@
         "id": 11,
         "title": "Mobile App Developer",
         "description": "Mobile App Developer role at AppWorld Technologies",
-        "salary": "\u00e2\u201a\u00b98,00,000 - \u00e2\u201a\u00b914,00,000",
+        "salary": "Rs 8,00,000 - Rs 14,00,000",
         "location": "Chennai, Tamil Nadu",
         "category": "Engineering",
         "company": "AppWorld Technologies"
@@ -102,7 +102,7 @@
         "id": 12,
         "title": "Quality Assurance Engineer",
         "description": "Quality Assurance Engineer role at TechGuard Solutions",
-        "salary": "\u00e2\u201a\u00b97,00,000 - \u00e2\u201a\u00b910,00,000",
+        "salary": "Rs 7,00,000 - Rs 10,00,000",
         "location": "Hyderabad, Telangana",
         "category": "Engineering",
         "company": "TechGuard Solutions"
@@ -111,7 +111,7 @@
         "id": 13,
         "title": "SEO Specialist",
         "description": "SEO Specialist role at SEO Solutions India",
-        "salary": "\u00e2\u201a\u00b96,00,000 - \u00e2\u201a\u00b99,00,000",
+        "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Marketing",
         "company": "SEO Solutions India"
@@ -120,7 +120,7 @@
         "id": 14,
         "title": "Graphic Designer",
         "description": "Graphic Designer role at DesignX Studios",
-        "salary": "\u00e2\u201a\u00b95,00,000 - \u00e2\u201a\u00b98,00,000",
+        "salary": "Rs 5,00,000 - Rs 8,00,000",
         "location": "Delhi NCR",
         "category": "Design",
         "company": "DesignX Studios"
@@ -129,7 +129,7 @@
         "id": 15,
         "title": "System Administrator",
         "description": "System Administrator role at TechNet India",
-        "salary": "\u00e2\u201a\u00b96,00,000 - \u00e2\u201a\u00b99,00,000",
+        "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Kolkata, West Bengal",
         "category": "IT Support",
         "company": "TechNet India"
@@ -138,7 +138,7 @@
         "id": 16,
         "title": "SQL Developer",
         "description": "Urgently need an SQL Developer for Linways Private Limited",
-        "salary": "\u00e2\u201a\u00b97,00,000 - \u00e2\u201a\u00b910,00,000",
+        "salary": "Rs 7,00,000 - Rs 10,00,000",
         "location": "Kochi, Kerala",
         "category": "Developing",
         "company": "Linways Private Limited"

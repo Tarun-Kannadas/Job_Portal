@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 import json
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'f3e1a87c3df40a29a4f2ef4cd6f10b33'
@@ -90,7 +91,6 @@ def post_job():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    # Handle job browsing
     try:
         with open('jobs.json', 'r') as file:
             jobs_data = json.load(file)
@@ -98,21 +98,86 @@ def home():
         print(f"Error loading jobs data: {e}")
         jobs_data = []
 
-    # Apply filters if provided (location, category, company)
-    location = request.args.get('location', '')
-    category = request.args.get('category', '')
-    company = request.args.get('company', '')
+    # Get filter values from the query string
+    location_filter = request.args.get('location', '')
+    category_filter = request.args.get('category', '')
+    company_filter = request.args.get('company', '')
+    salary_filter = request.args.get('salary', '')
 
-    # Filter jobs
+    # Extract unique dropdown values
+    all_categories = sorted(set(job.get('category', '') for job in jobs_data if job.get('category')))
+    all_locations = sorted(set(job.get('location', '') for job in jobs_data if job.get('location')))
+    all_salaries = sorted(set(job.get('salary', '') for job in jobs_data if job.get('salary')))
+
+    # Apply filtering
     filtered_jobs = [job for job in jobs_data if
-                     (not location or location.lower() in job['location'].lower()) and
-                     (not category or category.lower() in job['category'].lower()) and
-                     (not company or company.lower() in job['company'].lower())]
+                     (not location_filter or location_filter.lower() in job['location'].lower()) and
+                     (not category_filter or category_filter.lower() in job['category'].lower()) and
+                     (not company_filter or company_filter.lower() in job['company'].lower()) and
+                     (not salary_filter or salary_filter.lower() in job['salary'].lower())]
 
-    # Debug filtered result
-    print(f"Filtered jobs: {filtered_jobs}")
+    # Load applied jobs
+    applied_jobs = []
+    if current_user.is_authenticated:
+        try:
+            with open('applied_jobs.json', 'r') as f:
+                applied = json.load(f)
+                applied_jobs = applied.get(str(current_user.id), [])
+        except FileNotFoundError:
+            pass
 
-    return render_template('index.html', jobs=filtered_jobs, location=location, category=category, company=company)
+    return render_template(
+        'index.html',
+        jobs=filtered_jobs,
+        location=location_filter,
+        category=category_filter,
+        company=company_filter,
+        salary=salary_filter,
+        applied_jobs=applied_jobs,
+        categories=all_categories,
+        locations=all_locations,
+        salaries=all_salaries
+    )
+
+
+@app.route('/apply/<int:job_id>', methods=['POST'])
+@login_required
+def apply_job(job_id):
+    with open('jobs.json', 'r') as f:
+        jobs = json.load(f)
+
+    if not os.path.exists('applied_jobs.json'):
+        with open('applied_jobs.json', 'w') as f:
+            json.dump({}, f)
+
+    with open('applied_jobs.json', 'r') as f:
+        applied = json.load(f)
+
+    user_id = str(current_user.id)
+    if user_id not in applied:
+        applied[user_id] = []
+
+    if job_id not in applied[user_id]:
+        applied[user_id].append(job_id)
+
+    with open('applied_jobs.json', 'w') as f:
+        json.dump(applied, f)
+
+    return redirect(url_for('home'))
+
+@app.route('/jobs_applied')
+@login_required
+def jobs_applied():
+    with open('jobs.json', 'r') as f:
+        jobs = json.load(f)
+
+    with open('applied_jobs.json', 'r') as f:
+        applied = json.load(f)
+
+    user_applied = applied.get(str(current_user.id), [])
+    applied_jobs = [job for job in jobs if job['id'] in user_applied]
+
+    return render_template('jobs_applied.html', jobs=applied_jobs)
 
 
 @app.route('/register', methods=['GET', 'POST'])

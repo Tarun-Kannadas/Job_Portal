@@ -5,13 +5,28 @@
     <form method="GET" action="{{ url_for('home') }}" class="mb-5">
         <div class="row justify-content-center">
             <div class="col-md-3 mb-3">
-                <input type="text" name="location" class="form-control" placeholder="Location" value="{{ location }}" aria-label="Location">
+                <select name="location" class="form-control" aria-label="Location">
+                    <option value="">All Locations</option>
+                    {% for loc in locations %}
+                        <option value="{{ loc }}" {% if loc == location %}selected{% endif %}>{{ loc }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="col-md-3 mb-3">
-                <input type="text" name="category" class="form-control" placeholder="Category" value="{{ category }}" aria-label="Category">
+                <select name="category" class="form-control" aria-label="Category">
+                    <option value="">All Categories</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat }}" {% if cat == category %}selected{% endif %}>{{ cat }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="col-md-3 mb-3">
-                <input type="text" name="salary" class="form-control" placeholder="Salary" value="{{ salary }}" aria-label="Salary">
+                <select name="salary" class="form-control" aria-label="Salary">
+                    <option value="">All Salaries</option>
+                    {% for sal in salaries %}
+                        <option value="{{ sal }}" {% if sal == salary %}selected{% endif %}>{{ sal }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="col-md-3 mb-3">
                 <button type="submit" class="btn btn-dark w-100">Filter</button>
@@ -24,18 +39,42 @@
         {% if jobs %}
             {% for job in jobs %}
                 <div class="col-md-4 mb-4">
-                    <div class="card border-light shadow-sm rounded-3">
-                        <div class="card-body">
+                    <div class="card border-light shadow-sm rounded-4">
+                        <div class="card-body border border-primary rounded-4">
                             <h5 class="card-title text-dark font-weight-bold">{{ job.title }}</h5>
-                            <p class="card-text text-muted">
-                                <strong>Description:</strong> <span class="text-dark">{{ job.description }}</span><br>
-                                <strong>Salary:</strong> <span class="text-dark">{{ job.salary }}</span><br>
-                                <strong>Location:</strong> <span class="text-dark">{{ job.location }}</span><br>
-                                <strong>Category:</strong> <span class="text-dark">{{ job.category }}</span>
-                                <strong>Company:</strong> <span class="text-dark">{{ job.company }}</span>
-                            </p>
-                            <!-- Uncomment and add job's apply URL if available -->
-                            <!-- <a href="{{ job.apply_url }}" class="btn btn-outline-dark" target="_blank">Apply Now</a> -->
+                            <div class="card-text text-start">
+                                <div class="mb-2">
+                                    <strong class="text-muted">Description:</strong>
+                                    <div class="text-dark">{{ job.description }}</div>
+                                </div>
+                                <div class="mb-2">
+                                    <strong class="text-muted">Salary:</strong>
+                                    <div class="text-dark">{{ job.salary }}</div>
+                                </div>
+                                <div class="mb-2">
+                                    <strong class="text-muted">Location:</strong>
+                                    <div class="text-dark">{{ job.location }}</div>
+                                </div>
+                                <div class="mb-2">
+                                    <strong class="text-muted">Category:</strong>
+                                    <div class="text-dark">{{ job.category }}</div>
+                                </div>
+                                <div class="mb-2">
+                                    <strong class="text-muted">Company:</strong>
+                                    <div class="text-dark">{{ job.company }}</div>
+                                </div>
+                            </div>                            
+                            {% if current_user.is_authenticated %}
+                                {% if job.id in applied_jobs %}
+                                    <button class="btn btn-success btn-sm" disabled>Applied</button>
+                                {% else %}
+                                    <form method="POST" action="{{ url_for('apply_job', job_id=job.id) }}">
+                                        <button class="btn rounded-3 btn-outline-primary btn-sm">Apply</button>
+                                    </form>
+                                {% endif %}
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="btn btn-outline-secondary btn-sm">Login to Apply</a>
+                            {% endif %}                                                    
                         </div>
                     </div>
                 </div>
