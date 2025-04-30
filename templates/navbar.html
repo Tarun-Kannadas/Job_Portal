@@ -5,15 +5,23 @@
 
             <!-- Links specific to jobseekers and employers -->
             {% if current_user.role == 'employer' %}
-                <a href="{{ url_for('my_listings') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Listings</a>
+                <a href="{{ url_for('my_listings') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Posts</a>
+                <a href="{{ url_for('profile') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Profile</a>
             {% elif current_user.role == 'jobseeker' %}
                 <a href="{{ url_for('browse_jobs') }}" style="text-decoration:none; color: white; margin-left: 15px;">Browse Jobs</a>
+                <a href="{{ url_for('profile') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Profile</a>
+            {% else %}
+                <a href="{{ url_for('profile') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Profile</a>
+                <a href="{{ url_for('jobs_applied') }}" style="text-decoration:none; color: white; margin-left: 15px;">Jobs Applied</a>
             {% endif %}
             
-            <a href="{{ url_for('profile') }}" style="text-decoration:none; color: white; margin-left: 15px;">My Profile</a>
-            <a href="{{ url_for('jobs_applied') }}" style="text-decoration:none; color: white; margin-left: 15px;">Jobs Applied</a>
         {% endif %}
     </div>
+    {% if current_user.role == 'employer' %}
+        Logged in as Employee
+    {% elif current_user.role == 'job_seeker' %}
+        Logged in as Jobseeker
+    {% endif %}
     <div>
         {% if current_user.is_authenticated %}
             Welcome, {{ current_user.username }} |

@@ -6,7 +6,9 @@
         "salary": "Rs 8,00,000 - Rs 12,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Engineering",
-        "company": "Tech Solutions Pvt Ltd"
+        "company": "Tech Solutions Pvt Ltd",
+        "user_id": 8
+
     },
     {
         "id": 2,
@@ -15,7 +17,8 @@
         "salary": "Rs 10,00,000 - Rs 15,00,000",
         "location": "Hyderabad, Telangana",
         "category": "Data Science",
-        "company": "DataScience India"
+        "company": "DataScience India",
+        "user_id": 8
     },
     {
         "id": 3,
@@ -24,7 +27,8 @@
         "salary": "Rs 7,00,000 - Rs 11,00,000",
         "location": "Mumbai, Maharashtra",
         "category": "Design",
-        "company": "Creative Studios"
+        "company": "Creative Studios",
+        "user_id": 7
     },
     {
         "id": 4,
@@ -33,7 +37,8 @@
         "salary": "Rs 12,00,000 - Rs 18,00,000",
         "location": "Chennai, Tamil Nadu",
         "category": "Management",
-        "company": "Innovative Technologies"
+        "company": "Innovative Technologies",
+        "user_id": 6
     },
     {
         "id": 5,
@@ -42,7 +47,8 @@
         "salary": "Rs 8,00,000 - Rs 12,00,000",
         "location": "Pune, Maharashtra",
         "category": "Engineering",
-        "company": "CodeCraft Technologies"
+        "company": "CodeCraft Technologies",
+        "user_id": 4
     },
     {
         "id": 6,
@@ -51,7 +57,8 @@
         "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Delhi NCR",
         "category": "Marketing",
-        "company": "MarketingHub India"
+        "company": "MarketingHub India",
+        "user_id": 6
     },
     {
         "id": 7,
@@ -60,7 +67,8 @@
         "salary": "Rs 8,00,000 - Rs 14,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Business",
-        "company": "TechInnovate Solutions"
+        "company": "TechInnovate Solutions",
+        "user_id": 5
     },
     {
         "id": 8,
@@ -69,7 +77,8 @@
         "salary": "Rs 4,00,000 - Rs 7,00,000",
         "location": "Mumbai, Maharashtra",
         "category": "Writing",
-        "company": "ContentWorks Pvt Ltd"
+        "company": "ContentWorks Pvt Ltd",
+        "user_id": 9
     },
     {
         "id": 9,
@@ -78,7 +87,8 @@
         "salary": "Rs 5,00,000 - Rs 8,00,000",
         "location": "Kochi, Kerala",
         "category": "Human Resources",
-        "company": "PeopleFirst HR"
+        "company": "PeopleFirst HR",
+        "user_id": 8
     },
     {
         "id": 10,
@@ -87,7 +97,8 @@
         "salary": "Rs 7,00,000 - Rs 11,00,000",
         "location": "Noida, Uttar Pradesh",
         "category": "Engineering",
-        "company": "NetworkTech Solutions"
+        "company": "NetworkTech Solutions",
+        "user_id": 7
     },
     {
         "id": 11,
@@ -96,7 +107,8 @@
         "salary": "Rs 8,00,000 - Rs 14,00,000",
         "location": "Chennai, Tamil Nadu",
         "category": "Engineering",
-        "company": "AppWorld Technologies"
+        "company": "AppWorld Technologies",
+        "user_id": 4
     },
     {
         "id": 12,
@@ -105,7 +117,8 @@
         "salary": "Rs 7,00,000 - Rs 10,00,000",
         "location": "Hyderabad, Telangana",
         "category": "Engineering",
-        "company": "TechGuard Solutions"
+        "company": "TechGuard Solutions",
+        "user_id": 5
     },
     {
         "id": 13,
@@ -114,7 +127,8 @@
         "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Bangalore, Karnataka",
         "category": "Marketing",
-        "company": "SEO Solutions India"
+        "company": "SEO Solutions India",
+        "user_id": 6
     },
     {
         "id": 14,
@@ -123,7 +137,8 @@
         "salary": "Rs 5,00,000 - Rs 8,00,000",
         "location": "Delhi NCR",
         "category": "Design",
-        "company": "DesignX Studios"
+        "company": "DesignX Studios",
+        "user_id": 5
     },
     {
         "id": 15,
@@ -132,7 +147,8 @@
         "salary": "Rs 6,00,000 - Rs 9,00,000",
         "location": "Kolkata, West Bengal",
         "category": "IT Support",
-        "company": "TechNet India"
+        "company": "TechNet India",
+        "user_id": 4
     },
     {
         "id": 16,
@@ -141,6 +157,17 @@
         "salary": "Rs 7,00,000 - Rs 10,00,000",
         "location": "Kochi, Kerala",
         "category": "Developing",
-        "company": "Linways Private Limited"
+        "company": "Linways Private Limited",
+        "user_id": 3
+    },
+    {
+        "id": 17,
+        "title": "Backend Developer",
+        "description": "Node.js developer needed at WebTech",
+        "salary": "Rs 9,00,000 - Rs 12,00,000",
+        "location": "Remote",
+        "category": "Engineering",
+        "company": "WebTech Pvt Ltd",
+        "user_id": 3
     }
 ]

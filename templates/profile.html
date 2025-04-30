@@ -11,9 +11,8 @@
     {% include 'navbar.html' %}
 
     <div class="container mt-5">
-        <div class="card p-4 shadow-sm rounded">
-            <h2 class="mb-3">My Profile</h2>
-
+        <div class="card p-4 col-12 col-md-8 col-lg-6 mx-auto shadow-sm rounded">
+            <h2 class="mb-3 text-center">My Profile</h2> 
             <!-- Display current user details -->
             <form method="POST" action="{{ url_for('profile') }}">
                 <ul class="list-group list-group-flush">
@@ -29,17 +28,18 @@
                         <strong>Role:</strong>
                         <select class="form-control" name="role">
                             <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
-                            <option value="user" {% if user.role == 'user' %}selected{% endif %}>User</option>
+                            <option value="job_seeker" {% if user.role == 'job_seeker' %}selected{% endif %}>Jobseeker</option>
+                            <option value="employer" {% if user.role == 'employer' %}selected{% endif %}>Employee</option>
                         </select>
                     </li>
                 </ul>
-
-                <div class="mt-3">
+    
+                <div class="mt-3 text-center">
                     <button type="submit" class="btn btn-primary">Update Profile</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div>    
 
 </body>
 </html>

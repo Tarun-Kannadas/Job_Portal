@@ -12,30 +12,34 @@
 
     <div class="container mt-5">
         <h1 class="mb-4">Total Jobs Posted</h1>
-        <table class="table table-bordered">
+        <table class="table table-bordered border-dark">
             <thead>
                 <tr>
+                    <th>Employee</th>
                     <th>Job Title</th>
                     <th>Description</th>
                     <th>Salary</th>
                     <th>Location</th>
                     <th>Category</th>
                     <th>Company</th>
+                    <th>Applied</th> <!-- New Column -->
                 </tr>
             </thead>
             <tbody>
                 {% for job in jobs %}
                 <tr>
+                    <td>{{ users[job.user_id] if job.user_id in users else 'Unknown' }}</td>
                     <td>{{ job.title }}</td>
                     <td>{{ job.description }}</td>
                     <td>{{ job.salary }}</td>
                     <td>{{ job.location }}</td>
                     <td>{{ job.category }}</td>
                     <td>{{ job.company }}</td>
+                    <td>{{ application_counts[job.id|string] if job.id|string in application_counts else 0 }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
-        </table>
+        </table>        
     </div>
 
 </body>

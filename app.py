@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+# from models import Job, users
 import json
 import os
 
@@ -73,7 +74,7 @@ def post_job():
             'location': location,
             'category': category,
             'company': company,
-            'user_id': user_id
+            "user_id": current_user.id
         }
 
         # Add the new job to the list
@@ -238,6 +239,7 @@ def login():
     return render_template('login.html')
 
 @app.route('/my_listings')
+@login_required
 def my_listings():
     # Read jobs data from the jobs.json file
     with open('jobs.json', 'r') as f:
@@ -372,8 +374,27 @@ def edit_user(user_id):
 def admin_jobs():
     if current_user.role != 'admin':
         return "Unauthorized", 403
+
     jobs = load_job_data()
-    return render_template('admin_jobs.html', jobs=jobs)
+
+    # Load applied jobs data
+    try:
+        with open('applied_jobs.json', 'r') as f:
+            applied_data = json.load(f)
+    except FileNotFoundError:
+        applied_data = {}
+
+    # Create a job_id → application count map
+    application_counts = {}
+    for user_id, job_ids in applied_data.items():
+        for job_id in job_ids:
+            application_counts[str(job_id)] = application_counts.get(str(job_id), 0) + 1
+
+    # Get all users from DB and build id → username map
+    users = {user.id: user.username for user in User.query.all()}
+
+    return render_template('admin_jobs.html', jobs=jobs, users=users, application_counts=application_counts)
+
 
 @app.route('/admin/users')
 @login_required
